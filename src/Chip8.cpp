@@ -112,3 +112,25 @@ bool Chip8::load_prog( char* file_name ) {
 }
 
 
+// Debugging function definitions
+#ifdef _DEBUG
+void Chip8::print_memory() {
+
+  const int cols = 4;
+  // There are 2 bytes in every element of the print
+  const int rows = MEMORY_SIZE / (cols + cols);
+
+  for ( int i = 0; i < rows; i++ ) {
+    for ( int j = 0; j < cols; j++ ) {
+      int cell_i = i + (rows * j);
+      if ( (cell_i+1) < MEMORY_SIZE ) {
+        printf( "%2x %2x\t", 
+          memory[cell_i], 
+          memory[cell_i+1]);
+      }
+    }
+    printf( "\n" );
+  }
+
+}
+#endif

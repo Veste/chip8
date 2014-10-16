@@ -11,6 +11,13 @@ public:
 
   bool load_prog( char* file_name );
 
+// Debugging functions
+#ifdef _DEBUG
+
+  void print_memory( );
+
+#endif
+
 private:
   unsigned char *memory;  // The emulator's memory (4kb)
   unsigned char *V;       // General registers (16)
