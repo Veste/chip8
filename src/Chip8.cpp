@@ -1,5 +1,6 @@
-#include "chip8.h"
+#include "Chip8.h"
 #include <cstdio>
+#include <algorithm>
 
 #define FONTSET_SIZE 80
 // Characters are 4 wide, 5 tall
@@ -88,7 +89,7 @@ bool Chip8::load_prog( char* file_name ) {
   // TODO: Ensure that program fits into memory
 
   unsigned char *buffer;
-  buffer = (char*) malloc(sizeof(char)*file_size);
+  buffer = (unsigned char*) malloc(sizeof(unsigned char)*file_size);
   if ( buffer == NULL ) {
     // TODO: Memory error message
     fclose( prog );
